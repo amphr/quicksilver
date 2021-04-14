@@ -6,3 +6,4 @@ msvc/
 gnu-mingw/
 *.wasm
 .idea
+*.swp
