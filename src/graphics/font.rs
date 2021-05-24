@@ -19,23 +19,13 @@ pub struct VectorFont(rusttype::Font<'static>);
 #[cfg(feature = "ttf")]
 impl VectorFont {
     /// Create a VectorFont from a slice of binary TTF data
-    pub fn from_slice(data: &[u8]) -> Self {
-        VectorFont(
-            rusttype::FontCollection::from_bytes(data.to_vec())
-                .unwrap()
-                .into_font()
-                .unwrap(),
-        )
+    pub fn from_slice(data: &'static [u8]) -> Self {
+        VectorFont(rusttype::Font::try_from_bytes(data).unwrap())
     }
 
     /// Create a VectorFont from an owned Vec of TTF data
     pub fn from_bytes(data: Vec<u8>) -> Self {
-        VectorFont(
-            rusttype::FontCollection::from_bytes(data)
-                .unwrap()
-                .into_font()
-                .unwrap(),
-        )
+        VectorFont(rusttype::Font::try_from_vec(data).unwrap())
     }
 
     /// Load a VectorFont from a TTF file at the given path
