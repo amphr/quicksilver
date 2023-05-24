@@ -7,3 +7,5 @@ gnu-mingw/
 *.wasm
 .idea
 *.swp
+
+.DS_Store
