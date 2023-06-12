@@ -44,7 +44,7 @@ serde = {version = "1", optional = true, features = ["derive"] }
 
 [dependencies.blinds]
 git = "https://github.com/tabletopdev/blinds.git"
-branch = "mac-drawing"
+branch = "master"
 version = "0.1.4"
 default-features = false
 features = ["gl", "image"]
